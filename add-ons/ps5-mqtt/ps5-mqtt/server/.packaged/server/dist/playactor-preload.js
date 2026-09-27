@@ -1,0 +1,2 @@
+(()=>{"use strict";var e={};e.n=r=>{var t=r&&r.__esModule?()=>r.default:()=>r;return e.d(t,{a:t}),t},e.d=(r,t,o)=>{var s=(t,o)=>{for(var s in t)e.o(t,s)&&!e.o(r,s)&&Object.defineProperty(r,s,{enumerable:!0,[o]:t[s]})};s(t,"get"),s(o,"value")},e.o=(e,r)=>Object.prototype.hasOwnProperty.call(e,r);let r=require("http");var t=e.n(r);let o=t().Agent;t().Agent=class extends o{constructor(e){super(e),this.removeAllListeners("free"),this.on("free",()=>{})}},module.exports={}})();
+//# sourceMappingURL=playactor-preload.js.map

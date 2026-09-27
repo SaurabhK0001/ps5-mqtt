@@ -18,3 +18,7 @@ coverage
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Local fork: the assembled add-on context is committed so Home Assistant can build it
+!add-ons/ps5-mqtt/ps5-mqtt/server/.packaged/
+!add-ons/ps5-mqtt/ps5-mqtt/server/.packaged/**

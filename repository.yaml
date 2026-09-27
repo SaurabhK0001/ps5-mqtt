@@ -1,4 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
-name: PS5 MQTT Add-on
-url: "https://github.com/FunkeyFlo/ps5-mqtt"
-maintainer: "FunkeyFlo <https://github.com/FunkeyFlo>"
+# Fork of https://github.com/FunkeyFlo/ps5-mqtt that builds the add-on locally
+# (no prebuilt image). See scripts/assemble-local-addon.sh.
+name: PS5 MQTT Add-on (local build)
+url: "https://github.com/SaurabhK0001/ps5-mqtt"
+maintainer: "SaurabhK0001 (fork of FunkeyFlo/ps5-mqtt)"
