@@ -53,7 +53,7 @@ describe("PlayactorClient", () => {
       mockExec.mockReturnValue(execResult({ code: 0, stdout: "ok" }))
 
       await expect(client.wake(IP)).resolves.toBeUndefined()
-      expect(mockExec).toHaveBeenCalledWith(WAKE_CMD, execOptions(5000))
+      expect(mockExec).toHaveBeenCalledWith(WAKE_CMD, execOptions(15000))
     })
 
     test("includes the --pass-code fragment when a passcode is configured", async () => {
@@ -70,7 +70,7 @@ describe("PlayactorClient", () => {
           ` --timeout 5000 --connect-timeout 5000 --no-open-urls --no-auth` +
           ` --pass-code '1234'` +
           ` -c ${CREDENTIAL_PATH}`,
-        execOptions(5000),
+        execOptions(15000),
       )
     })
 
@@ -93,7 +93,7 @@ describe("PlayactorClient", () => {
         `playactor wake --ip ${IP}` +
           ` --timeout 5000 --connect-timeout 5000 --no-open-urls --no-auth` +
           ` --ps5 -c ${CREDENTIAL_PATH}`,
-        execOptions(5000),
+        execOptions(15000),
       )
     })
 

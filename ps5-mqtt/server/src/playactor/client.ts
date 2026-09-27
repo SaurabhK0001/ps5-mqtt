@@ -22,7 +22,10 @@ const STANDBY_DISCOVERY_TIMEOUT_MS = 10000
 const STANDBY_CONNECT_TIMEOUT_MS = 10000
 const STANDBY_SHELLJS_TIMEOUT_MS = 25000
 
-const WAKE_SHELLJS_TIMEOUT_MS = 5000
+// Same bug as #675 for standby: wake passes --timeout 5000 --connect-timeout 5000
+// to playactor but was killed by shelljs at 5000 ms, so every wake that needed
+// the full budget died at exactly 5 s with code 1. Must exceed the sum.
+const WAKE_SHELLJS_TIMEOUT_MS = 15000
 
 // Every playactor child gets the shim from ./preload.ts (built next to
 // index.js). Appended to NODE_OPTIONS, not replacing it: under Yarn PnP it

@@ -131,8 +131,9 @@ async function handleDeviceAuthentication(
     logInfo: (m) => {
       debugPa(m)
     },
-    logResult: (r) => {
-      debugPa(r)
+    // Results can carry Remote Play credentials (RP-Key, RegistKey); never log them.
+    logResult: () => {
+      debugPa("result received (not logged: may contain credentials)")
     },
 
     prompt: handlers.onPrompt,
@@ -147,7 +148,9 @@ async function handleDeviceAuthentication(
     new WriteOnlyStorage(new DiskCredentialsStorage(credentialStoragePath)),
   )
 
-  const fd = await cm.getForDevice(device)
+  await cm.getForDevice(device)
 
-  debugPa(fd)
+  // The registration holds the Remote Play key; it is written to the credential
+  // store only. Logging it put the key in plain text in the add-on log.
+  debugPa(`Registered with device '${device.id}'; credentials stored, not logged.`)
 }
